@@ -1,0 +1,32 @@
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+	<title>Catalog App</title>
+</head>
+
+
+<div class="login column">
+
+
+<h1>Add new item</h1>
+
+
+
+
+<a href="{{url_for('showCategory', category_id = category.id)}}">Cancel</a>
+
+
+<h4>You're adding an item to "{{ category.title }}" Category</h4>
+
+<form action="" method="post">
+
+	<p>Fill the fields to add an item:</p>
+	<input type="text" name="title" placeholder="title" required>
+	<input type="text" name="description" placeholder="description">
+	<input type="text" name="price" placeholder="price">
+	<input type="text" name="photo" placeholder="link of photo">
+
+	<input type="submit" value="Add">
+
+</form>
+
+</div>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+	<title>Catalog App</title>
+</head>
+
+
+
+
+
+
+<body>
+
+<header id="header">
+	<div class="header">
+	<h1 class="title">Catalog App</h1>
+	<a class="signBtn" href="{{url_for('gdisconnect')}}"> <button>logout</button> </a> 
+	
+	</div>
+</header>
+
+	<div id="row">
+
+		<div class="column left">
+
+			<h2 class="row">Categories</h2>
+			<a class="addButton" href="{{ url_for('addCategory') }}">Add Categories</a>
+			<br><br>
+
+			<div class="row"></div>
+
+			{% for category in categories %}
+				
+				<div class="rows">
+
+					<h3 class="item-title"><a href="{{ url_for('showCategory', category_id = category.id) }}"> {{ category.title }} </a></h3>
+					<div class="modify">
+					<p class="cat-title"><a href="{{ url_for('editCategory', category_id = category.id) }}"> edit </a></p>
+					<p class="cat-title"><a href="{{ url_for('deleteCategory', category_id = category.id) }}"> delete </a></p>
+					<br>
+					</div>
+					<hr class="styling">
+				</div>
+
+			{% endfor %}
+
+		</div>
+
+
+		<div class="column right">
+
+			<h2 class="row">Latest Items</h2>
+
+			<div class="row">
+
+				{% for item in items %}
+				
+					<div class="rows">
+
+						<h3 class="item-title"><a href="{{ url_for('showItem', category_id = item.category_id, item_id = item.id) }}">{{ item.title }}</a></h3>
+						<p class="cat-title">(({{ item.category.title }}))</p>
+						<div class="modify">
+							<p class="cat-title"><a href="{{ url_for('editItem', category_id = item.category_id, item_id = item.id) }}">edit</a></p>
+							<p class="cat-title"><a href="{{ url_for('deleteItem', category_id = item.category_id, item_id = item.id) }}">delete</a></p>
+							<br>
+						</div>
+						<hr class="styling">
+					</div>
+				
+				{% endfor %}
+
+			</div>
+
+		</div>
+
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+	<title>Catalog App</title>
+</head>
+
+
+<div class="login column">
+
+
+<h1>Edit category</h1>
+
+
+<a href="{{url_for('Catalog')}}">Cancel</a>
+
+
+<form action="" method="post">
+
+	<p>Title:</p>
+	<input type="text" name="title" placeholder="{{ category.title }}">
+
+	<input type="submit" name="submit">
+
+</form>
+
+</div>

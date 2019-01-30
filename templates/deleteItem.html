@@ -1,0 +1,24 @@
+<head>
+	<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+	<title>Catalog App</title>
+</head>
+
+
+<div class="login column">
+
+
+<h1>Delete item</h1>
+
+
+<a href="{{ url_for('Catalog') }}">Cancel</a>
+
+
+<form action="" method="post">
+
+	<p>Do you want to delete "{{ item.title }}"?</p>
+
+	<input type="submit" value="delete">
+
+</form>
+
+</div>
